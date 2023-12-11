@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Cadastro e Exibição de Produtos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="libs/materialize.min.css" />
+		<link rel="stylesheet" href="libs/jquery-ui.css" />
+        <link rel="stylesheet" href="style.css">
+
+		<script src="libs/jquery-3.4.1.min.js"></script>
+		<script src="libs/jquery-ui.min.js"></script>
+		<script src="libs/materialize.min.js"></script>
+		<script src="libs/jquery.mask.js"></script>
+		<script src="libs/app.js"></script>
+		<script src="main.js"></script>
+		<script src="domIndex.js"></script>
+	</head>
+
+	<body class="margin-3">
+        <div class="col s12">
+            <h4 class="center p-bottom-3">Formulário de Produto</h4>
+        </div>
+
+        <form id="frmProduto" class="p-bottom-3">
+            <input type="hidden" name="id" id="id"/>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input
+                        placeholder="Informe o nome do produto aqui"
+                        id="nome"
+                        name="nome"
+                        type="text" 
+                    />
+                    <label for="nome">Nome do produto</label>
+                </div>
+                <div class="input-field col s6">
+                    <input
+                        placeholder="Descrição do produto"
+                        id="descricao"
+                        name="descricao"
+                        type="text" 
+                    />
+                    <label for="descricao">Descrição do produto</label>
+                </div>
+                <div class="input-field col s2">
+                    <input 
+                        placeholder="Informe o valor do produto"
+                        id="valor"
+                        name="valor"
+                        type="number"
+                    />
+                    <label for="valor">Valor do produto</label>
+                </div>
+                <div class="input-field col s2">
+                    <input 
+                        placeholder="A quantidade de produto no estoque"
+                        id="qtdeEstoque"
+                        name="qtdeEstoque"
+                        type="number"
+                    />
+                    <label for="estoque">Quantidade no estoque</label>
+                </div>
+                <div class="input-field col s2">
+                    <input 
+                        placeholder="Quantidade minima de produto no estoque"
+                        id="estoqueMinimo"
+                        name="estoqueMinimo"
+                        type="number"
+                    />
+                    <label for="estoque">Quantidade minima no estoque</label>
+                </div>
+                <div class="input-field col s6">
+                    <input 
+                        placeholder="URL da imagem do produto"
+                        id="imagem"
+                        name="imagem"
+                        type="text"
+                    />
+                    <label for="estoque">URL da imagem do produto</label>
+                </div>
+                <div class="input-field col s6">
+                    <label>Selecione a seção</l>
+                    <select id="select" name="secao" class="browser-default">
+                        <option value="" disabled selected>Selecione a seção</option>
+                    </select>
+                    <a href="registerSecao.html">Cadastre uma seção</a>
+                </div>
+            </div>
+
+            <div class="container center-align p-top-">
+                <div class="col s4 m3 l2 center-align oculto" id="menuBoletim12"">
+                    <label class="blue-text text-darken-3 clique">
+                        <a class="waves-effect waves-light btn" onclick="saveProduto()"><i class="material-icons left">cloud</i>Salvar</a>
+                    </label>
+                </div>
+            </div>
+        </form>
+        
+		<div class="p-top-3" id="listaProdutos"></div>
+
+        <!-- Model Diaglog Warning -->
+		<div id="dialog" title="ATENÇÃO!" style="display: none">
+			<p class="center-align">
+				<i class="material-icons medium amber-text">info</i><br /><span
+					class="indigo-text center-align"
+					id="msgResp"></span>
+			</p>
+		</div>
+
+		<div id="dialogAguarde" class="modal oculto" title="AGUARDE...">
+			<div class="modal-content">
+				<div class="preloader-wrapper small active">
+					<div class="spinner-layer spinner-blue-only">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

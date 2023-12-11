@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Cadastro e Exibição de Produtos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="libs/materialize.min.css" />
+		<link rel="stylesheet" href="libs/jquery-ui.css" />
+        <link rel="stylesheet" href="style.css">
+
+		<script src="libs/jquery-3.4.1.min.js"></script>
+		<script src="libs/jquery-ui.min.js"></script>
+		<script src="libs/materialize.min.js"></script>
+		<script src="libs/jquery.mask.js"></script>
+		<script src="libs/app.js"></script>
+		<script src="main.js"></script>
+		<script src="domRegisterSecao.js"></script>
+	</head>
+
+	<body class="margin-3">
+        <div class="col s12 center p-bottom-3">
+            <h4 class="center">Formulário de Seção</h4>
+        </div>
+
+        <form id="frmProduto" class="p-bottom-3">
+            <input type="hidden" name="id" id="id"/>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input
+                        placeholder="Informe o nome da seção aqui"
+                        id="nome"
+                        name="nome"
+                        type="text" 
+                    />
+                    <label for="nome">Nome da seção</label>
+                </div>
+				<div class="input-field col s6">
+                    <label>Selecione o produto</l>
+                    <select multiple id="select" class="selectProduto">
+                        <!-- <option value="" disabled>Selecione um produto</option> -->
+                    </select>
+                    <a href="index.html">Criar um produto</a>
+                </div>
+            </div>
+
+            <div class="container center-align p-top-7">
+                <div class="col s4 m3 l2 center-align oculto" id="menuBoletim12"">
+                    <label class="blue-text text-darken-3 clique">
+                        <a class="waves-effect waves-light btn" onclick="saveSecao()"><i class="material-icons left">cloud</i>Salvar</a>
+                    </label>
+                </div>
+            </div>
+        </form>
+        
+		<div class="p-top-3" id="listaSecao"></div>
+
+        <!-- Model Diaglog Warning -->
+		<div id="dialog" title="ATENÇÃO!" style="display: none">
+			<p class="center-align">
+				<i class="material-icons medium amber-text">info</i><br /><span
+					class="indigo-text center-align"
+					id="msgResp"></span>
+			</p>
+		</div>
+
+		<div id="dialogAguarde" class="modal oculto" title="AGUARDE...">
+			<div class="modal-content">
+				<div class="preloader-wrapper small active">
+					<div class="spinner-layer spinner-blue-only">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
